@@ -1,0 +1,92 @@
+<link rel="stylesheet" href="/static/CSS/Menu.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<div class="headercontainer">
+    <div class="BBDDImgContainer">
+        <img src="/static\images\header.png" class="BBDDImg">
+        <div class="gradient-overlay"></div>
+    </div>
+    <img src="/static/images/logo_sina-01.svg" class="sinaImg">
+    <img src="/static\images\gear-fill.svg" class="config" a href="#" onclick="showConfig()" class="btn btn-primary red ">
+</div>
+
+<div class="familiacontainer">
+    <div class="familiaDepartamentos">
+        <h1 class="special-title">Familia de <br> departamentos</h1>
+    </div>
+    <div class="familiaBotones">
+        <button id="familiaLink" class="btnfamilia">Familias</button>
+        <button id="subfamiliaLink" class="btnsubfamilia">Subamilias</button>
+    </div>
+</div>
+
+<div class="prestacionescontainer">
+    <p>Prestaciones</p>
+    <div class="perstacionesBotones">
+        <button id="prestacionLink" class="btnprestacion">
+            <span class="text-style">Ver <br> Prestaciones</span>
+            <span>Tratamientos de <br> los pacientes en activo</span>
+        </button>
+        <button id="tipoprestacionLink" class="btntipoprestacion">
+            <span class="text-style"> Tipo  de <br>Prestacion</span>
+            <span>Tratamiento que <br >recibe el paciente</span>
+        </button>
+    </div>
+    <div class="perstacionesBotones">
+        <button id="origenprestacionLink" class="btnorigenprestacion">
+            <span class="text-style">Origen <br>Prestacion</span>
+            <span>Paciente que recibe el tratamiento</span>
+        </button>
+        <button id="prestacionservicioLink" class="btnprestacionservicio">
+            <span class="text-style">Prestacion <br> Servicio</span>
+            <span>Departamento donde <br>recibe el tratamiento</span>
+        </button>
+    </div>
+    </div>
+</div>
+
+<div>
+    <button id="garantesLink" class="btngarantes">
+        <span>Garantes</span>
+    </button>
+</div>
+<div>
+    <button id="contratoLink" class="btncontrato">
+        <span>Contrato</span>
+    </button>
+</div>
+<div>
+    <button id="lotesLink" class="btnlotes">
+        <span>Lotes</span>
+    </button>
+</div>
+
+<!-- Popup de configuración -->
+<div id="configPopup" class="popup">
+    <div class="headerPopup">
+        <h2>Configuración del Entorno</h2>
+    </div>
+    <form>
+        <label for="server">Server:</label>
+        <input type="text" id="server" name="server" required>
+
+        <label for="database">Database:</label>
+        <input type="text" id="database" name="database" required>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <div class="btnform">
+            <button type="button" onclick="saveConfig()" class="buttonform">Guardar</button>          
+            <button type="button" onclick="testConnection()" class="buttonform">Probar</button>
+        </div>
+        <div>
+            <button type="button" onclick="hideConfig()" class="cancelbutton">Cancelar</button>
+        </div>
+    </form>
+</div>
+
+<script src="/static/scripts/menu.js"></script>

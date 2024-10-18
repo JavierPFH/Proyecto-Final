@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="static/CSS/Styles.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/0oxzj/9crcFrmCU2Q2w0xWwm0UxEA02grzD06p" crossorigin="anonymous">
+
+<h1>Lotes</h1>
+<a href="/" >
+    <img src="/static/images/logo_sina-01.svg" alt="Logo">
+</a>
+
+<form id="configForm" action="/insert_lote">
+    <label for="Codlote">CodLote:</label>
+    <input type="text" id="CodLote" name="Cod_lote">
+
+    <label for="Centro">Centro:</label>
+    <input type="text" id="Centro" name="Centro">
+
+    <button type="button" onclick="filter()">Filtrar</button>
+    <button type="button" onclick="showImportPopup()" class="btn btn-primary"><i class="fas fa-file-import" title="Importar"></i></button>
+    <a href="#" onclick="showConfig()" class="btn btn-primary"><i class="fas fa-folder-plus"
+            title="Añadir Lote"></i></a>
+
+    <!-- Popup de añadir -->
+    <div id="configPopup" class="popup">
+        <button id="closePopupBtn" onclick="hideConfig()">X</button>
+        <h2>Añadir Lote</h2>
+        <form>
+            <input type="hidden" id="configId_lote" name="configId_lote" required>
+
+            <label for="configCentro">Centro:</label>
+            <input type="text" id="configCentro" name="configCentro" required>
+
+            <label for="configCod_lote">Cod_lote:</label>
+            <input type="text" id="configCod_lote" name="configCod_lote" required>
+
+            <label for="configFechaInicio">Fecha de inicio:</label>
+            <input type="text" id="configFechaInicio" name="configFechaInicio">
+
+            <label for="configFechaFin">Fecha de fin:</label>
+            <input type="text" id="configFechaFin" name="configFechaFin">
+
+            <label for="configDescripcion">Descripcion:</label>
+            <input type="text" id="configDescripcion" name="configDescripcion" required>
+
+            <label for="configServicioCanario">Servicio Canario:</label>
+            <input type="text" id="configServicioCanario" name="configServicioCanario" required>
+
+            <label for="configServicioCompañia">Servicio Compañia:</label>
+            <input type="text" id="configServicioCompañia" name="configServicioCompañia" required>
+
+
+            <div class="buttons-container">
+                <button type="submit" onclick="GuardarConfig()">Guardar</button>
+                <button type="button" onclick="hideConfig()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Popup de editar -->
+    <div id="editPopup" class="popup">
+        <button id="closePopupBtn" onclick="hideEdit()">X</button>
+        <h2>Editar Lotes</h2>
+        <form>
+            <input type="hidden" id="editId_lote" name="editId_lote" required>
+        
+            <label for="editCentro">Centro:</label>
+            <input type="text" id="editCentro" name="editCentro" required>
+
+            <label for="editCod_lote">Cod_Lote:</label>
+            <input type="text" id="editCod_lote" name="editCod_lote" required>
+
+            <label for="editFechaInicio">Fecha de inicio:</label>
+            <input type="text" id="editFechaInicio" name="editFechaInicio" required>
+
+            <label for="editFechaFin">Fecha de fin:</label>
+            <input type="text" id="editFechaFin" name="editFechaFin" required>
+
+            <label for="editDescripcion">Descripcion:</label>
+            <input type="text" id="editDescripcion" name="editDescripcion" required>
+
+            <label for="editServicioCanario">Servicio Canario:</label>
+            <input type="text" id="editServicioCanario" name="editServicioCanario" required>
+
+            <label for="editServicioCompañia">Servicio Compañia:</label>
+            <input type="text" id="editServicioCompañia" name="editServicioCompañia" required>
+
+
+
+            <button type="button" onclick="updateRow()">Guardar</button>
+            <button type="button" onclick="hideEdit()">Cancelar</button>
+        </form>
+    </div>
+
+    <!-- Importar dados -->
+    <div id="importPopup" class="popup">
+        <button id="closePopupBtn" onclick="hideImportPopup()">X</button>
+        <h2>Carga de Datos</h2>
+        <form action="/carga_lotes" method="POST" enctype="multipart/form-data">
+            <input type="file" id="importFile" class="importfile-button" name="importFile" accept=".xlsx">
+            <button type="submit" class="import-button">Subir</button>
+            <button type="button" class="cancel-button" onclick="hideImportPopup()">Cancelar</button>
+            <a href="/download_lotes" class="btn btn-primary">Bajar Plantilla</a>
+        </form>
+    </div>
+    
+    <div id="loading" style="display:none">
+        <i class="fas fa-spinner fa-spin"></i> Cargando...
+    </div>
+</form>
+
+<table id="resultsTable">
+    <thead>
+        <tr>
+            <th>Id Lote</th>
+            <th>Centro</th>
+            <th>CodLote</th>
+            <th>Fecha Inicio</th>
+            <th>Fecha Fin</th>
+            <th>Descripcion</th>
+            <th>Servicio Canario</th>
+            <th>Servicio Compañia</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody id="tableBody">
+    </tbody>
+</table>
+
+<div id="paginationDiv">
+    <select id="pagination" title="Seleccionar página"></select>
+</div id="paginationDiv">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="/static/scripts/Lotes.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+{% endblock %}

@@ -1,0 +1,374 @@
+.headercontainer {
+    position: relative;
+}
+
+.BBDDImgContainer {
+    width: 100%;
+    height: 683px;
+    position: relative;
+    z-index: 1;
+}
+.BBDDImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+.sinaImg {
+    width: 154px;
+    height: 42px;
+    background: lightgray 0% 0% / 50px 50px repeat;
+    position: absolute;
+    top:10px;
+    left: 10px;
+    background-color: transparent;
+    z-index: 2;
+}
+
+.config {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+}
+
+.gradient-overlay {
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(178deg, rgba(54, 164, 208, 0.00) 50.01%, #FFF 98.13%);
+}
+
+.familiacontainer {
+    width: 100%;
+    height: 443px;
+    flex-shrink: 0;
+    flex-direction: row;
+    position: relative;
+}
+
+.familiaDepartamentos {
+    width: 946.892px;
+    height: 583.686px;
+    transform: rotate(49.825deg);
+    flex-shrink: 0;
+    background: #36A4D0;
+    z-index: 0;
+    position: absolute;
+    left: -250;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.special-title{
+    color: #000;
+    font-family: Inter;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    transform: rotate(-49.825deg);
+    right: -3px;
+    bottom: 72px;
+    position: relative;
+}
+
+.familiaBotones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: absolute;
+    bottom: 95px;
+    right: 434px;
+}
+
+.btnfamilia, .btnsubfamilia {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 23px 87px 24px 25px;
+    border-radius: 20px;
+    border: 1px solid #E4E4E4;
+    background: #FFF;
+    box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 300px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    color: #1B5268;
+}
+
+.btnfamilia::before, .btnsubfamilia::before {
+    content: url('../images/server.svg');
+    margin-right: 10px;
+}
+
+.prestacionescontainer {
+    width: 100%;
+    height: auto;
+    position: relative;
+    background-color: white;
+    z-index: 1;
+}
+
+.prestacionescontainer p{
+    width: 418px;
+    height: 66px;
+    flex-shrink: 0;
+    color: #000;
+    font-family: Inter;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    margin-left: 70px;
+}
+
+.perstacionesBotones {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    margin: 15em
+    
+}
+
+.btnprestacion {
+    width: 480px;
+    height: 211px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: #36A4D0 url("../images/prestacionImg.png") no-repeat left center;
+    background-size: auto 100%;
+    border: 1px solid #36A4D0;
+    box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 20px;
+    position: relative;
+}
+
+.btntipoprestacion {
+    width: 480px;
+    height: 211px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: #36A4D0 url("../images/tipoPrestacionImg.png") no-repeat left center;
+    background-size: auto 100%;
+    border: 1px solid #36A4D0;
+    box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 20px;
+    position: relative;
+}
+
+.btnorigenprestacion {
+    width: 480px;
+    height: 211px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: #36A4D0 url("../images/origenprestacionImg.png") no-repeat left center;
+    background-size: auto 100%;
+    border: 1px solid #36A4D0;
+    box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 20px;
+    position: relative;
+}
+
+.btnprestacionservicio {
+    width: 480px;
+    height: 211px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: #36A4D0 url("../images/prestacionservicioImg.jpg") no-repeat left center;
+    background-size: auto 100%;
+    border: 1px solid #36A4D0;
+    box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 20px;
+    position: relative;
+}
+
+.btnprestacion::before, .btntipoprestacion::before, .btnorigenprestacion::before, .btnpestacionservicio::before {
+    content: "";
+    width: 186px;
+    height: 211px;
+    flex-shrink: 0;
+    border-radius: 30px 0px 0px 30px;
+}
+
+.btnprestacion span, .btntipoprestacion span, .btnorigenprestacion span, .btnprestacionservicio span {
+    color: #FFF;
+    font-size: 14px;
+    position: absolute;
+    top: 143px;
+    left: calc(200px + 20px);
+    max-width: calc(100% - (200px + 20px));
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.btnprestacion .text-style, .btntipoprestacion .text-style, .btnorigenprestacion .text-style, .btnprestacionservicio .text-style {
+    color: #000;
+    font-family: Inter;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    font-size: 42px;
+    position: absolute;
+    top: 10px;
+    left: calc(200px + 20px); 
+    max-width: calc(100% - (150px + 20px));
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.btngarantes {
+    width: 100%;
+    height: 259px;
+    flex-shrink: 0;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.00) 0%, #FFF 66.83%), url("../images/garantesImg.png") lightgray 50% / cover no-repeat;
+    border: none;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 200px;
+}
+
+.btncontrato {
+    width: 100%;
+    height: 259px;
+    flex-shrink: 0;
+    background: linear-gradient(90deg, #FFF 15.83%, rgba(255, 255, 255, 0.00) 66.83%), url("../images/contratoImg.png") lightgray 50% / cover no-repeat;
+    border: none;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 200px;
+}
+
+.btnlotes {
+    width: 100%;
+    height: 259px;
+    flex-shrink: 0;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.00) 15.83%, #FFF 66.83%), url("../images/loteImg.png") lightgray 50% / cover no-repeat;
+    border: none;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 200px;
+}
+
+.btngarantes span,.btncontrato span ,.btnlotes span {
+    color: #000;
+    font-family: Inter;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFF;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    padding: 20px;
+    width: 400px;
+    height: 500px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.headerPopup {
+    width: 400px;
+    height: 55px;
+    border-radius: 30px 30px 0px 0px;
+    background: #36A4D0;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.popup h2 {
+    color: #000;
+    font-family: Inter;
+    font-size: 27px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    text-align: center;
+}
+
+.popup form {
+    margin-top: 20px;
+}
+
+.btnform {
+    display: flex;
+    flex-direction: row;
+    margin: 1em;
+    justify-content: space-evenly;
+}
+
+.buttonform {
+    width: 136px;
+    height: 40px;
+    border-radius: 20px;
+    background: #36A4D0;
+    border: none;
+}
+
+.cancelbutton {
+    width: 136px;
+    height: 40px;
+    border-radius: 20px;
+    background: #E72323;
+    border: none;
+    position: absolute;
+    right: 5rem;
+}
+
+form input[type="password"], form input[type="text"] {
+    width: 340px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 1px solid #000;
+    background: #FFF;
+    margin-bottom: 20px;
+}
